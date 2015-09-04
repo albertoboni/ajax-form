@@ -155,6 +155,7 @@ For the next version:
 - More examples, MOAR!
 - Make the ajax icons overwritable by the constructor;
 - Dynamically create the <img> tag for the ajax icons;
+- This would be a cool jQuery plugin, used like `$('[name=form]').ajaxForm({...});`
 
 
 ## Contributing
