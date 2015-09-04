@@ -20,24 +20,26 @@ Just create an instance of AjaxForm for each for to make it ajaxy.
 The class with fetch the method and action from the target form by default, but you can override this behaviour with the
 constructor options.
 
-    <script type="text-javascript">
-        login_form = new AjaxForm({
-            form_selector: 'form[name=login]',
-            success_callback: function(data){
-                alert("success!");
-            },
-            error_callback: function(){
-                alert("error :'(");        
-            }
-        });
-    </script>
-    
-    <form name="login" method="post" action="/login">
-        <input name="username" type="text" value="" />
-        <input name="password" type="password" value="" />
-    </form>
+```html
+<script type="text-javascript">
+    login_form = new AjaxForm({
+        form_selector: 'form[name=login]',
+        success_callback: function(data){
+            alert("success!");
+        },
+        error_callback: function(){
+            alert("error :'(");        
+        }
+    });
+</script>
 
-    <a onclick="login_form.submit()">Submit!</a>
+<form name="login" method="post" action="/login">
+    <input name="username" type="text" value="" />
+    <input name="password" type="password" value="" />
+</form>
+
+<a onclick="login_form.submit()">Submit!</a>
+```
 
 
 ## Assumptions
