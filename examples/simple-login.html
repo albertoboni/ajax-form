@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Example 1</title>
+
+    <script type="text/javascript" src="http://code.jquery.com/jquery-2.1.4.min.js"></script>
+    <script type="text/javascript" src="../lib/ajax-form.js"></script>
+</head>
+<body>
+
+    <span id="feedback_message"><!-- To be replaced --></span>
+
+    <form name="login" method="post" action="/login">
+        <input name="username" type="text" placeholder="Login" />
+        <input name="password" type="password" placeholder="Password" />
+
+        <input type="submit" onclick="login_form.submit()" />
+    </form>
+
+    <script type="text/javascript">
+        var login_form = new AjaxForm({
+            form_selector       : 'form[name=login]',
+            feedback_selector   : '#feedback_message',
+
+            validation          : function()
+            {
+                if ($('input[name=username]').val() == '')
+                {
+                    this.print_feedback('You need to provide a username', true);
+                    return false;
+                }
+
+                return true;
+            },
+
+            success_callback    : function(data)
+            {
+                this.print_feedback(":-D", true);
+            },
+
+            error_callback      : function()
+            {
+                this.print_feedback(":-'(", true);
+            }
+        });
+    </script>
+</body>
+</html>

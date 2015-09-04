@@ -71,7 +71,7 @@ or
 | ajax_data              | Object   | To override the serialized data from the form  |
 | ajax_url               | String   | To override the url from the action of the form  |
 | ajax_method            | String   | To override the value method from the form (GET || POST)  |
-| validate()             | Function | A validation function, that if returned false will abort the ajax call. Handy for form validation  |
+| validation()           | Function | A validation function, that if returned false will abort the ajax call. Handy for form validation  |
 | preajax_callback()     | Function | A function call done after the validation, and before the ajax call  |
 | success_callback(data) | Function | Function called whenever the backend indicates success on the response (`data` param is the parsed json response) |
 | error_callback(data)   | Function | Function called whenever the backend indicates failure on the response (`data` param is the parsed json response) |
@@ -87,8 +87,58 @@ You can send anything back on the json response, but the class expects the follo
 | feedback_message | String   | The feedback string to be displayed to the user, it will be printed on the element targeted by the selector `feedback_selector` |
 
 
+## Instance Methods
+
+| Method                        | Description |
+| ----------------------------- | ----------- |
+| submit()                                              | Do the magic and submits the form |
+| print_feedback(String message, Boolean auto_close)    | Prints a string on the element corresponding to `feedback_selector` |
+
+
 ## Examples
 
+Common usages that for this class that I ran into. You can find this and other examples in the [examples folder](https://github.com/albertoboni/ajax-form/tree/master/examples).
+
+
+### Simple login form
+```html
+<span id="feedback_message"><!-- To be replaced --></span>
+
+<form name="login" method="post" action="/login">
+    <input name="username" type="text" placeholder="Login" />
+    <input name="password" type="password" placeholder="Password" />
+
+    <input type="submit" onclick="login_form.submit()" />
+</form>
+
+<script type="text/javascript">
+    var login_form = new AjaxForm({
+        form_selector       : 'form[name=login]',
+        feedback_selector   : '#feedback_message',
+
+        validation          : function()
+        {
+            if ($('input[name=username]').val() == '')
+            {
+                this.print_feedback('You need to provide a username', true);
+                return false;
+            }
+
+            return true;
+        },
+
+        success_callback    : function(data)
+        {
+            this.print_feedback(":-D", true);
+        },
+
+        error_callback      : function()
+        {
+            this.print_feedback(":-'(", true);
+        }
+    });
+</script>
+```
 
 
 ## Contributing
