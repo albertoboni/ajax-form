@@ -20,19 +20,19 @@ Just create an instance of AjaxForm for each for to make it ajaxy.
 The class with fetch the method and action from the target form by default, but you can override this behaviour with the
 constructor options.
 
-```html
-<script type="text-javascript">
-    login_form = new AjaxForm({
-        form_selector: 'form[name=login]',
-        success_callback: function(data){
-            alert("success!");
-        },
-        error_callback: function(){
-            alert("error :'(");        
-        }
-    });
-</script>
+```javascript
+login_form = new AjaxForm({
+    form_selector: 'form[name=login]',
+    success_callback: function(data){
+        alert("success!");
+    },
+    error_callback: function(){
+        alert("error :'(");        
+    }
+});
+```
 
+```html
 <form name="login" method="post" action="/login">
     <input name="username" type="text" value="" />
     <input name="password" type="password" value="" />
@@ -66,11 +66,11 @@ or
 | Name                   | Value    | Description |
 | ---------------------- | -------- | ----- |
 | form_selector          | String   | The Jquery selector for the form  |
-| ajax_icon_selector     | String   | The selector for the icon to display during loading, success and error  |
-| feedback_selector      | String   | The selector for the element that will hold the feedback message  |
+| ajax_icon_selector     | String   | The selector for the icon to display during loading, success and error (default: `.ajaxform-ajax_icon`) |
+| feedback_selector      | String   | The selector for the element that will hold the feedback message (default: `#ajaxform-feedback`) |
 | ajax_data              | Object   | To override the serialized data from the form  |
 | ajax_url               | String   | To override the url from the action of the form  |
-| ajax_method            | String   | To override the value method from the form [GET|POST]  |
+| ajax_method            | String   | To override the value method from the form (GET || POST)  |
 | validate()             | Function | A validation function, that if returned false will abort the ajax call. Handy for form validation  |
 | preajax_callback()     | Function | A function call done after the validation, and before the ajax call  |
 | success_callback(data) | Function | Function called whenever the backend indicates success on the response (`data` param is the parsed json response) |
@@ -79,8 +79,16 @@ or
 
 ## Json Response
 
+You can send anything back on the json response, but the class expects the following entries to work:
+
+| Name             | Value    | Description |
+| ---------------- | -------- | ----- |
+| success          | Boolean  | The response of the backend, it triggers `success_callback()` or `error_callback()` defined on the constructort  |
+| feedback_message | String   | The feedback string to be displayed to the user, it will be printed on the element targeted by the selector `feedback_selector` |
+
 
 ## Examples
+
 
 
 ## Contributing
