@@ -143,9 +143,10 @@ Common usages that for this class that I ran into. You can find this and other e
 
 ## Contributing
 
-Bug reports and pull requests are welcome on GitHub at https://github.com/albertoboni/bonix-benchmark. 
+Bug reports and pull requests are welcome on GitHub at https://github.com/albertoboni/ajax-form. 
 This project is intended to be a safe, welcoming space for collaboration, and contributors are expected to adhere to 
 the [Contributor Covenant](contributor-covenant.org) code of conduct.
+
 
 
 ## License
