@@ -11,7 +11,9 @@ Jquery +1.9
 
 ## Installation
 
-    <script type="text-javascript" src="ajax-form.js" />
+```html
+<script type="text-javascript" src="ajax-form.js" />
+```
 
 
 ## Usage
@@ -77,6 +79,7 @@ or
 | error_callback(data)   | Function | Function called whenever the backend indicates failure on the response (`data` param is the parsed json response) |
 
 
+
 ## Json Response
 
 You can send anything back on the json response, but the class expects the following entries to work:
@@ -87,6 +90,7 @@ You can send anything back on the json response, but the class expects the follo
 | feedback_message | String   | The feedback string to be displayed to the user, it will be printed on the element targeted by the selector `feedback_selector` |
 
 
+
 ## Instance Methods
 
 | Method                        | Description |
@@ -95,9 +99,11 @@ You can send anything back on the json response, but the class expects the follo
 | print_feedback(String message, Boolean auto_close)    | Prints a string on the element corresponding to `feedback_selector` |
 
 
+
 ## Examples
 
 Common usages that for this class that I ran into. You can find this and other examples in the [examples folder](https://github.com/albertoboni/ajax-form/tree/master/examples).
+
 
 
 ### Simple login form
@@ -141,12 +147,21 @@ Common usages that for this class that I ran into. You can find this and other e
 ```
 
 
+## TODO
+
+For the next version:
+- A better name;
+- Make it Bower compatible;
+- More examples, MOAR!
+- Make the ajax icons overwritable by the constructor;
+- Dynamically create the <img> tag for the ajax icons;
+
+
 ## Contributing
 
 Bug reports and pull requests are welcome on GitHub at https://github.com/albertoboni/ajax-form. 
 This project is intended to be a safe, welcoming space for collaboration, and contributors are expected to adhere to 
 the [Contributor Covenant](contributor-covenant.org) code of conduct.
-
 
 
 ## License
