@@ -1,7 +1,10 @@
 # AjaxForm
 
-A simple library to make a form submit an ajax request with it's parsed content. It came out of the need of creating 
-multiple ajax binds and response treatment.
+A simple library to make a form submit an ajax request with it's parsed content. It came out of pure boredom at work,
+doing over and over again simple ajax calls, creating multiple ajax functions to do simple tasks.
+
+The idea is to have a class flexible enough to handle most cases of ajax calls and at the same time remain simple enough
+to extend new behaviour.
 
 
 ## Dependencies
@@ -86,7 +89,7 @@ You can send anything back on the json response, but the class expects the follo
 
 | Name             | Value    | Description |
 | ---------------- | -------- | ----- |
-| success          | Boolean  | The response of the backend, it triggers `success_callback()` or `error_callback()` defined on the constructort  |
+| success          | Boolean  | The response of the backend, it triggers `success_callback()` or `error_callback()` defined on the constructor  |
 | feedback_message | String   | The feedback string to be displayed to the user, it will be printed on the element targeted by the selector `feedback_selector` |
 
 
@@ -95,7 +98,7 @@ You can send anything back on the json response, but the class expects the follo
 
 | Method                        | Description |
 | ----------------------------- | ----------- |
-| submit()                                              | Do the magic and submits the form |
+| submit()                                              | Do the magic and submits the form. By default it will be bound to any `input[type=submit]` inside the form. |
 | print_feedback(String message, Boolean auto_close)    | Prints a string on the element corresponding to `feedback_selector` |
 
 
@@ -114,7 +117,7 @@ Common usages that for this class that I ran into. You can find this and other e
     <input name="username" type="text" placeholder="Login" />
     <input name="password" type="password" placeholder="Password" />
 
-    <input type="submit" onclick="login_form.submit()" />
+    <input type="submit" />
 </form>
 
 <script type="text/javascript">
