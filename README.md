@@ -21,7 +21,7 @@ Jquery +1.9
 
 ## Usage
 
-Just create an instance of AjaxForm for each for to make it ajaxy. 
+Just create an instance of AjaxForm for each for to make it ajaxy.
 The class with fetch the method and action from the target form by default, but you can override this behaviour with the
 constructor options.
 
@@ -53,16 +53,16 @@ This class assumes that all responses are json strings having at least the eleme
 the nature of the response.
 
     {
-        success: true, 
-        feedback_message: 'success!', 
+        success: true,
+        feedback_message: 'success!',
     }
 
 or
 
     {
-        success: false, 
-        feedback_message: 'Aww man!', 
-    } 
+        success: false,
+        feedback_message: 'Aww man!',
+    }
 
 
 
@@ -155,6 +155,7 @@ Common usages that for this class that I ran into. You can find this and other e
 For the next version:
 - A better name;
 - Make it Bower compatible;
+- Create grunt file to minify
 - More examples, MOAR!
 - Make the ajax icons overwritable by the constructor;
 - Dynamically create the <img> tag for the ajax icons;
@@ -163,12 +164,11 @@ For the next version:
 
 ## Contributing
 
-Bug reports and pull requests are welcome on GitHub at https://github.com/albertoboni/ajax-form. 
-This project is intended to be a safe, welcoming space for collaboration, and contributors are expected to adhere to 
+Bug reports and pull requests are welcome on GitHub at https://github.com/albertoboni/ajax-form.
+This project is intended to be a safe, welcoming space for collaboration, and contributors are expected to adhere to
 the [Contributor Covenant](contributor-covenant.org) code of conduct.
 
 
 ## License
 
 This script is available as open source under the terms of the [MIT License](http://opensource.org/licenses/MIT).
-
