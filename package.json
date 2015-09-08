@@ -1,8 +1,8 @@
 {
   "name": "ajax-form",
-  "version": "0.1.1",
+  "version": "0.1.2",
   "author": "Alberto Boni",
-  "description": "Simple class to make ajax forms",
+  "description": "A simple class to make a form submit ajax and handle json response.",
   "main": "lib/ajax-form.js",
   "directories": {
     "example": "examples"

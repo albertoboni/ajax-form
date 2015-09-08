@@ -15,7 +15,7 @@ Jquery +1.9
 ## Installation
 
 ```html
-<script type="text-javascript" src="ajax-form.js" />
+<script type="text-javascript" src="ajax-form-0.1.x.min.js" />
 ```
 
 
