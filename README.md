@@ -14,12 +14,22 @@ Jquery +1.9
 
 ## Installation
 
+### Download the library
+
+#### NPM
+```
+npm install https://github.com/albertoboni/ajax-form.git
+```
+
+#### Bower
 ```
 bower install git@github.com:albertoboni/ajax-form.git
 ```
 
+### HTML
 ```html
-<script type="text-javascript" src="bower_components/dist/ajax-form.min.js" />
+<script type="text-javascript" src="<path_to_modules>/ajax-form/dist/jquery.min.js" />
+<script type="text-javascript" src="<path_to_modules>/ajax-form/dist/ajax-form.min.js" />
 ```
 
 
