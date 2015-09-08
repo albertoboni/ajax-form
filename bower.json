@@ -17,11 +17,11 @@
   "license": "MIT",
   "ignore": [
     "**/.*",
-    "node_modules",
-    "bower_components",
-    "test",
-    "tests",
-    "src",
+    "**/node_modules/*",
+    "**/bower_components/*",
+    "test/*",
+    "tests/*",
+    "src/*",
     "Gruntfile.js",
     "LICENSE",
     "README"
