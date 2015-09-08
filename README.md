@@ -13,21 +13,23 @@ Jquery +1.9
 
 
 ## Installation
-You can use either NPM or Bower to manage your dependencies for this project, or just download the latest version from this repo, then just add the html reference to jquery and ajax-form:
+You can use a package manager with this project or download the js files from `/dist/` manually. Either way, just make sure your add a reference to your html to `jquery.js` and `ajax-form.js`
 
 ```html
-<script type="text/javascript" src="<path_to_modules>/ajax-form/dist/jquery.min.js"></script>
-<script type="text/javascript" src="<path_to_modules>/ajax-form/dist/ajax-form.min.js"></script>
+<script type="text/javascript" src="<path_to_js_folder>/jquery.min.js"></script>
+<script type="text/javascript" src="<path_to_js_folder>/ajax-form.min.js"></script>
 ```
 
-### NPM
-```
-npm install https://github.com/albertoboni/ajax-form.git
-```
-
-### Bower
-```
-bower install git@github.com:albertoboni/ajax-form.git
+### Package managers
+Just add the dependency for this repo to your `package.json` or `bower.json`:
+```json
+{
+  ...,
+  "dependencies": {
+      "some-package": "git@github.com:someone/some-package.git"
+   },
+   ...
+}
 ```
 
 
