@@ -155,7 +155,7 @@ Common usages that for this class that I ran into. You can find this and other e
 For the next version:
 - A better name;
 - Make it Bower compatible;
-- Create grunt file to minify
+- Create grunt file to minify;
 - More examples, MOAR!
 - Make the ajax icons overwritable by the constructor;
 - Dynamically create the <img> tag for the ajax icons;
