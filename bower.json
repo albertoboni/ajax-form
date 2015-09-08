@@ -20,7 +20,11 @@
     "node_modules",
     "bower_components",
     "test",
-    "tests"
+    "tests",
+    "src",
+    "Gruntfile.js",
+    "LICENSE",
+    "README"
   ],
   "dependencies": {
     "jquery": ">1.9.x",
