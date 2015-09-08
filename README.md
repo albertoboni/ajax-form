@@ -26,7 +26,7 @@ Just add the dependency for this repo to your `package.json` or `bower.json`:
 {
   ...,
   "dependencies": {
-      "some-package": "git@github.com:someone/some-package.git"
+      "ajax-form": "git@github.com:albertoboni/ajax-form.git"
    },
    ...
 }
