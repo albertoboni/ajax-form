@@ -38,6 +38,7 @@ Just add the dependency for this repo to your `package.json` or `bower.json`:
 Just create an instance of AjaxForm for each for to make it ajaxy.
 The class with fetch the method and action from the target form by default, but you can override this behaviour with the
 constructor options.
+`AjaxForm.submit()` will be bound to the `onSubmit` event of the form, you can either submit the form or call the function straight.
 
 ```javascript
 login_form = new AjaxForm({
@@ -55,9 +56,8 @@ login_form = new AjaxForm({
 <form name="login" method="post" action="/login">
     <input name="username" type="text" value="" />
     <input name="password" type="password" value="" />
+    <input type="submit" />
 </form>
-
-<a onclick="login_form.submit()">Submit!</a>
 ```
 
 
@@ -112,7 +112,7 @@ You can send anything back on the json response, but the class expects the follo
 
 | Method                        | Description |
 | ----------------------------- | ----------- |
-| submit()                                              | Do the magic and submits the form. By default it will be bound to any `input[type=submit]` inside the form. |
+| submit()                                              | Do the magic and submits the form. By default it will be bound to the `onSubmit` event of the form. |
 | print_feedback(String message, Boolean auto_close)    | Prints a string on the element corresponding to `feedback_selector` |
 
 
@@ -170,7 +170,7 @@ For the next version:
 - A better name;
 - More examples, MOAR!
 - Make the ajax icons overwritable by the constructor;
-- Dynamically create the <img> tag for the ajax icons;
+- Dynamically create the `<img>` tag for the ajax icons;
 - This would be a cool jQuery plugin, used like `$('[name=form]').ajaxForm({...});`;
 
 
