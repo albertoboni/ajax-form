@@ -14,8 +14,12 @@ Jquery +1.9
 
 ## Installation
 
+```
+bower install git@github.com:albertoboni/ajax-form.git
+```
+
 ```html
-<script type="text-javascript" src="ajax-form-0.1.x.min.js" />
+<script type="text-javascript" src="bower_components/dist/ajax-form.min.js" />
 ```
 
 

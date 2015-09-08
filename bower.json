@@ -2,9 +2,7 @@
   "name": "ajax-form",
   "version": "0.1.3",
   "homepage": "https://github.com/albertoboni/ajax-form",
-  "authors": [
-    "Alberto Boni <betobonix@gmail.com>"
-  ],
+  "authors": ["Alberto Boni <betobonix@gmail.com>"],
   "description": "A simple class to make a form submit ajax and handle json response.",
   "main": "lib/ajax-form.js",
   "keywords": [
