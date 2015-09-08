@@ -9,7 +9,7 @@ module.exports = function(grunt) {
     copy: {
       main: {
         src: 'src/<%= pkg.name %>.js',
-        dest: 'lib/<%= pkg.name %>.js',
+        dest: 'dist/<%= pkg.name %>.js',
         options: {
           process: function (content, srcpath) {
             return (
@@ -35,7 +35,7 @@ module.exports = function(grunt) {
       },
       build: {
         src: 'src/<%= pkg.name %>.js',
-        dest: 'lib/<%= pkg.name %>.min.js'
+        dest: 'dist/<%= pkg.name %>.min.js'
       }
     }
   });

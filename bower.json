@@ -17,14 +17,13 @@
   "license": "MIT",
   "ignore": [
     "**/.*",
-    "**/node_modules/*",
-    "**/bower_components/*",
-    "test/*",
-    "tests/*",
-    "src/*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests",
+    "examples",
     "Gruntfile.js",
-    "LICENSE",
-    "README"
+    "README.md"
   ],
   "dependencies": {
     "jquery": ">1.9.x"

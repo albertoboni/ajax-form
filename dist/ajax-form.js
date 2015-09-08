@@ -3,7 +3,7 @@
  *
  * @project     ajax-form
  * @author      Alberto Boni
- * @version     0.1.2
+ * @version     0.1.3
  * @website     https://github.com/albertoboni/ajax-form#readme
  */
 function AjaxForm(params)
