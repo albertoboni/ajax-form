@@ -22,7 +22,7 @@ You can use a package manager with this project or download the js files from `/
 
 ### Package managers
 Just add the dependency for this repo to your `package.json` or `bower.json`:
-```json
+```
 {
   ...,
   "dependencies": {
