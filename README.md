@@ -13,23 +13,21 @@ Jquery +1.9
 
 
 ## Installation
+You can use either NPM or Bower to manage your dependencies for this project, or just download the latest version from this repo, then just add the html reference to jquery and ajax-form:
 
-### Download the library
+```html
+<script type="text/javascript" src="<path_to_modules>/ajax-form/dist/jquery.min.js"></script>
+<script type="text/javascript" src="<path_to_modules>/ajax-form/dist/ajax-form.min.js"></script>
+```
 
-#### NPM
+### NPM
 ```
 npm install https://github.com/albertoboni/ajax-form.git
 ```
 
-#### Bower
+### Bower
 ```
 bower install git@github.com:albertoboni/ajax-form.git
-```
-
-### HTML
-```html
-<script type="text-javascript" src="<path_to_modules>/ajax-form/dist/jquery.min.js" />
-<script type="text-javascript" src="<path_to_modules>/ajax-form/dist/ajax-form.min.js" />
 ```
 
 
@@ -168,7 +166,6 @@ Common usages that for this class that I ran into. You can find this and other e
 
 For the next version:
 - A better name;
-- Make it Bower compatible;
 - More examples, MOAR!
 - Make the ajax icons overwritable by the constructor;
 - Dynamically create the <img> tag for the ajax icons;
