@@ -4,7 +4,7 @@ A simple library to make a form submit an ajax request with it's parsed content.
 doing over and over again simple ajax calls, creating multiple ajax functions to do simple tasks.
 
 The idea is to have a class flexible enough to handle most cases of ajax calls and at the same time remain simple enough
-to extend new behaviour.
+to extend new behavior.
 
 
 ## Dependencies
