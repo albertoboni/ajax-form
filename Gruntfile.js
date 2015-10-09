@@ -37,14 +37,26 @@ module.exports = function(grunt) {
         src: 'src/<%= pkg.name %>.js',
         dest: 'dist/<%= pkg.name %>.min.js'
       }
+    },
+
+    replace: {
+      bump_bower_version: {
+        src: ['bower.json'],
+        overwrite: true,
+        replacements: [{
+          from: /"version": ".*",/g,
+          to: "\"version\": \"<%= pkg.version %>\","
+        }]
+      }
     }
   });
 
   // Load the plugin that provides the "uglify" task.
   grunt.loadNpmTasks('grunt-contrib-uglify');
   grunt.loadNpmTasks('grunt-contrib-copy');
+  grunt.loadNpmTasks('grunt-text-replace');
 
   // Default task(s).
-  grunt.registerTask('default', ['copy', 'uglify']);
+  grunt.registerTask('default', ['copy', 'uglify', 'replace']);
 
 };

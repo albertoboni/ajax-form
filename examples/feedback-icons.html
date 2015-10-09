@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Example 2</title>
+
+    <script type="text/javascript" src="http://code.jquery.com/jquery-2.1.4.min.js"></script>
+    <script type="text/javascript" src="../dist/ajax-form.js"></script>
+</head>
+<body>
+
+    <form name="login" method="post" action="login">
+        <span id="feedback_message"><!-- To be replaced --></span>
+
+        <input name="username" type="text" placeholder="Login" />
+        <input name="password" type="password" placeholder="Password" />
+
+        <input type="submit" />
+
+        <span id="feedback_icon"><!-- To be replaced --></span>
+    </form>
+
+    <script type="text/javascript">
+        var form = new AjaxForm({
+            form_selector          : 'form[name=login]',
+            feedback_selector      : '#feedback_message',
+            feedback_icon_selector : '#feedback_icon',
+
+            success_callback    : function(data)
+            {
+                this.print_feedback(":D", true);
+            },
+
+            error_callback      : function()
+            {
+                this.print_feedback(":'(", true);
+            }
+        });
+    </script>
+
+
+    <br/>
+    <br/>
+
+    <p>Overriding icons for custom HTML</p>
+    <form name="login" method="post" action="login">
+        <input name="username" type="text" placeholder="Login" />
+        <input name="password" type="password" placeholder="Password" />
+
+        <input type="submit" />
+
+        <span class="feedback_icons"><!-- To be replaced --></span>
+    </form>
+
+    <script type="text/javascript">
+        var form = new AjaxForm({
+            form_selector          : 'form[name=login]',
+            feedback_icon_selector : '.feedback_icons',
+            feedback_html_success  : 'ok!',
+            feedback_html_loading  : 'loading..',
+            feedback_html_error    : 'error!'
+        });
+    </script>
+</body>
+</html>

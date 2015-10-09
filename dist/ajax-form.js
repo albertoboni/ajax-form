@@ -11,28 +11,31 @@ function AjaxForm(params)
     this._lock = false;
 
     // TODO: make this overwritable
-    this.ajax_icons = {
-        loading : '/images/ajax-loader.gif',
-        success : '/images/ajax-success.',
-        error :   '/images/ajax-error.png'
+    this.feedback_icons_html = {
+        loading : $('<img>').attr('src', 'images/ajax-loading.png').prop('outerHTML'),
+        success : $('<img>').attr('src', 'images/ajax-success.png').prop('outerHTML'),
+        error   : $('<img>').attr('src', 'images/ajax-error.png').prop('outerHTML')
     };
 
     this._selector_prefix = 'ajaxform-';
 
-    this.ajax_icon_selector = params.ajax_icon_selector ? params.ajax_icon_selector : ''.concat('.', this._selector_prefix, 'icon');
-    this.form_selector	 	  = params.form_selector;
-    this.feedback_selector 	= params.feedback_selector  ? params.feedback_selector  : ''.concat('#', this._selector_prefix, 'feedback');
-    this.ajax_data          = params.ajax_data;         // TODO: merge this ajax_data with the serialized _form data
-    this.ajax_url           = params.ajax_url           ? params.ajax_url           : $(this.form_selector).attr('action');
-    this.ajax_method        = params.ajax_method        ? params.ajax_method        : $(this.form_selector).attr('method');
-    this.validation         = params.validation         ? params.validation         : function() {return true};
-    this.preajax_callback   = params.preajax_callback   ? params.preajax_callback   : function() {};
-    this.success_callback   = params.success_callback   ? params.success_callback   : function(data) {};
-    this.error_callback     = params.error_callback     ? params.error_callback     : function(data) {};
+    this.form_selector	 	    = params.form_selector;
+    this.feedback_selector 	    = params.feedback_selector       ? params.feedback_selector       : ''.concat('#', this._selector_prefix, 'feedback');
+    this.feedback_icon_selector = params.feedback_icon_selector  ? params.feedback_icon_selector  : ''.concat('#', this._selector_prefix, 'feedback_icon');
+    this.feedback_html_success  = params.feedback_html_success   ? params.feedback_html_success   : $('<img>').attr('src', 'images/ajax-success.png').prop('outerHTML');
+    this.feedback_html_loading  = params.feedback_html_loading   ? params.feedback_html_loading   : $('<img>').attr('src', 'images/ajax-loading.png').prop('outerHTML');
+    this.feedback_html_error    = params.feedback_html_error     ? params.feedback_html_error     : $('<img>').attr('src', 'images/ajax-error.png').prop('outerHTML');
+    this.ajax_data              = params.ajax_data;         // TODO: merge this ajax_data with the serialized $form data
+    this.ajax_url               = params.ajax_url                ? params.ajax_url                : $(this.form_selector).attr('action');
+    this.ajax_method            = params.ajax_method             ? params.ajax_method             : $(this.form_selector).attr('method');
+    this.validation             = params.validation              ? params.validation              : function() {return true};
+    this.preajax_callback       = params.preajax_callback        ? params.preajax_callback        : function() {};
+    this.success_callback       = params.success_callback        ? params.success_callback        : function(data) {};
+    this.error_callback         = params.error_callback          ? params.error_callback          : function(data) {};
 
-
-    this._form      = $(this.form_selector);
-    this._feedback  = $(this.feedback_selector);
+    this.$feedback_icon         = $(this.feedback_icon_selector);
+    this.$form                  = $(this.form_selector);
+    this.$feedback              = $(this.feedback_selector);
 
     this.submit = function()
     {
@@ -54,18 +57,18 @@ function AjaxForm(params)
             url      : parent.ajax_url,
             type     : parent.ajax_method,
             dataType : 'json',
-            data     : parent.ajax_data ? parent.ajax_data : parent._form.serialize(),
+            data     : parent.ajax_data ? parent.ajax_data : parent.$form.serialize(),
             success  : function(data){
                 parent._lock = false;
 
                 if(data.result)
                 {
-                    parent._display_result_icon(parent.form_selector, 'success');
+                    parent._display_result_icon('success');
                     parent.success_callback(data);
                 }
                 else
                 {
-                    parent._display_result_icon(parent.form_selector, 'error');
+                    parent._display_result_icon('error');
                     parent.error_callback(data);
                 }
 
@@ -74,7 +77,7 @@ function AjaxForm(params)
             error: function(data){
                 parent._lock = false;
 
-                parent._display_result_icon(parent.form_selector, 'error');
+                parent._display_result_icon('error');
 
                 parent.error_callback(data);
             }
@@ -90,12 +93,12 @@ function AjaxForm(params)
             return false;
         }
 
-        this._feedback.show().html(message);
+        this.$feedback.show().html(message);
 
         if (auto_close)
         {
             setTimeout(function(){
-                parent._feedback.slideUp(250, function(){
+                parent.$feedback.slideUp(250, function(){
                     $(this).empty().css('display', 'block');
                 })
             }, 3500);
@@ -104,30 +107,39 @@ function AjaxForm(params)
 
     this._clear_feedback = function()
     {
-        this._feedback.empty().hide();
+        this.$feedback.empty().hide();
     };
 
     this._display_loading_icon = function()
     {
-        selector = this._form.find(this.ajax_icon_selector.concat(':eq(0)'));
-        if ($(selector).length)
+        if (this.$feedback_icon.length)
         {
-            $(selector).show().attr('src', this.ajax_icons.loading);
+            this.$feedback_icon.show().html(this.feedback_html_loading);
         }
     };
 
     this._display_result_icon = function(type)
     {
-        selector = this._form.find(this.ajax_icon_selector.concat(':eq(0)'));
-        if (type != 'error' && type != 'success')
+        if (!this.$feedback_icon.length)
         {
-            $(selector).hide();
-            return;
+            this.$feedback_icon.hide();
         }
 
-        $(selector).attr('src', this.ajax_icons[type]).show();
+        switch(type)
+        {
+            case 'error':
+                this.$feedback_icon.show().html(this.feedback_html_error);
+                break;
+            case 'success':
+                this.$feedback_icon.show().html(this.feedback_html_success);
+                break;
 
-        setTimeout(function() {}, 2000);
+            default:
+                this.$feedback_icon.hide();
+        }
+
+        //TODO: ability to set a timout to hide the result
+        //setTimeout(function() {}, 2000);
     };
 
 
@@ -136,12 +148,12 @@ function AjaxForm(params)
 
     // press [ENTER] to submit
     var parent = this;
-    this._form.find('option, select, input').keypress(function(e){
+    this.$form.find('option, select, input').keypress(function(e){
         if (e.which == 13) { parent.submit(); }
     });
 
     // lock smart browsers
-    this._form.submit(function(event){
+    this.$form.submit(function(event){
         parent.submit();
         event.preventDefault();
     });
