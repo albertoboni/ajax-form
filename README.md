@@ -87,9 +87,9 @@ or
 | form_selector          | String   | The Jquery selector for the form  |
 | feedback_selector      | String   | The selector for the element that will hold the feedback message (default: `#ajaxform-feedback`) |
 | feedback_icon_selector | String   | The selector for the element that will hold the feedback icon html (default: `.ajaxform-ajax_icon`) |
-| feedback_html_success  | String   | The html for the success icon (default: '<img src="images/ajax-success.png" />') |
-| feedback_html_laoding  | String   | The html for the loading icon (default: '<img src="images/ajax-loading.png" />') |
-| feedback_html_error    | String   | The html for the error icon (default: '<img src="images/ajax-error.png" />') |
+| feedback_html_success  | String   | The html for the success icon (default: `<img src="images/ajax-success.png" />`) |
+| feedback_html_laoding  | String   | The html for the loading icon (default: `<img src="images/ajax-loading.png" />`) |
+| feedback_html_error    | String   | The html for the error icon (default: `<img src="images/ajax-error.png" />`) |
 | ajax_data              | Object   | To override the serialized data from the form  |
 | ajax_url               | String   | To override the url from the action of the form  |
 | ajax_method            | String   | To override the value method from the form (GET || POST)  |
