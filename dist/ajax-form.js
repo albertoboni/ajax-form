@@ -3,19 +3,12 @@
  *
  * @project     ajax-form
  * @author      Alberto Boni
- * @version     0.1.3
+ * @version     0.2.0
  * @website     https://github.com/albertoboni/ajax-form#readme
  */
 function AjaxForm(params)
 {
     this._lock = false;
-
-    // TODO: make this overwritable
-    this.feedback_icons_html = {
-        loading : $('<img>').attr('src', 'images/ajax-loading.png').prop('outerHTML'),
-        success : $('<img>').attr('src', 'images/ajax-success.png').prop('outerHTML'),
-        error   : $('<img>').attr('src', 'images/ajax-error.png').prop('outerHTML')
-    };
 
     this._selector_prefix = 'ajaxform-';
 
